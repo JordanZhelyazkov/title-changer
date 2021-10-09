@@ -1,12 +1,22 @@
 import "./App.css";
-import Timer from "./Timer";
+import {useState, useEffect} from 'react';
 
 function App() {
+  let [seconds, setCount] = useState(1);
+
+    
+  useEffect(() => {
+     document.title = `Count (${seconds})`
+  }, [seconds]);
+
   return (
+    
     <div className="App">
       <section class="hero">
         <div class="hero-body">
-          <p class="title"> <Timer /> </p>
+          <p class="title"> 
+          <button onClick={() => setCount(seconds + 1)} >Count ({seconds})</button>
+           </p>
           <p class="subtitle">by Boom.dev</p>
         </div>
       </section>
